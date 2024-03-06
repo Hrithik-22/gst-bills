@@ -60,8 +60,9 @@ class PartyController extends Controller
     
     }
     // function to load add party view
-    public function editParty(){
+    public function editParty($party_id){
         // return "Coding with Hrithik";
-        return view("party.edit");
+        $data['party']=Party::find($party_id);
+        return view("party.edit",$data);
     }
 }

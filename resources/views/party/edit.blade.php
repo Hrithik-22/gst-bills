@@ -46,9 +46,9 @@
                                             id="validationCustom01" placeholder="Please select Type"
                                         >
                                             <option disabled selected>Select Type</option>
-                                            <option value="client">Client</option>
-                                            <option value="vendor">Vendor</option>
-                                            <option value="employee">Employee</option>
+                                            <option value="client" @if($party->party_type=='client') selected  @endif>Client</option>
+                                            <option value="vendor" @if($party->party_type=='vendor') selected  @endif>Vendor</option>
+                                            <option value="employee" @if($party->party_type=='employee') selected  @endif>Employee</option>
                                         </select>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                                         <label for="validationCustom01">Full Name</label>
                                         <input type="text" class="form-control border-bottom "
                                         name="full_name"
-                                            id="validationCustom01" placeholder="Enter client's full name"
+                                            id="validationCustom01" value="{{$party->full_name}}" placeholder="Enter client's full name"
                                         >
                                         <div class="invalid-feedback">
                                             Please provide a Full name.
@@ -70,6 +70,7 @@
                                         <input type="text" class="form-control border-bottom "
                                         name="phone_no"
                                             id="validationCustom02" placeholder="Enter phone/mobile number"
+                                            value="{{$party->phone_no}}"
                                             >
                                         <div class="invalid-feedback">
                                             Please provide a Number.
@@ -84,7 +85,8 @@
                                         <label for="validationCustom03">Address</label>
                                         <input type="text" class="form-control border-bottom "
                                         name="address"
-                                            id="validationCustom02" placeholder="Enter Address" >
+                                            id="validationCustom02" placeholder="Enter Address"
+                                            value="{{$party->address}}" >
                                         <div class="invalid-feedback">
                                             Please provide a valid Address.
                                         </div>
@@ -101,6 +103,7 @@
                                         <label for="validationCustom04">Account Holder Name</label>
                                         <input type="text" class="form-control border-bottom "
                                         name="account_holder_name"
+                                        value="{{$party->account_holder_name}}"
                                             id="validationCustom04" placeholder="Enter Account Holder name"
                                         >
                                         <div class="invalid-feedback">
@@ -114,6 +117,7 @@
                                         <label for="validationCustom05">Account Number</label>
                                         <input type="text" class="form-control border-bottom "
                                         name="account_no"
+                                        value="{{$party->account_no}}"
                                             id="validationCustom05" placeholder="Enter Account Number"
                                             >
                                         <div class="invalid-feedback">
@@ -128,6 +132,7 @@
                                         <label for="validationCustom02">Bank Name</label>
                                         <input type="text" class="form-control border-bottom "
                                         name="bank_name"
+                                        value="{{$party->bank_name}}"
                                             id="validationCustom02" placeholder="Enter Bank Name"
                                         >
                                         <div class="invalid-feedback">
@@ -143,6 +148,7 @@
                                         <label for="validationCustom02">IFSC Code</label>
                                         <input type="text" class="form-control border-bottom "
                                         name="ifsc_code"
+                                        value="{{$party->ifsc_code}}"
                                             id="validationCustom02" placeholder="Enter IFSC Code"
                                             >
                                         <div class="invalid-feedback">
@@ -155,6 +161,7 @@
                                     <label for="validationCustom02">Branch Address</label>
                                     <input type="text" class="form-control border-bottom "
                                     name="branch_address"
+                                    
                                         id="validationCustom02" placeholder="Enter Branch Address" >
                                     <div class="invalid-feedback">
                                         Please provide a Branch Name.
