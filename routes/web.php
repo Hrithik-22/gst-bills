@@ -37,6 +37,8 @@ Route::get('/add-party', [PartyController::class, 'addParty'])->name('addParty')
 Route::post('/create-party', [PartyController::class, 'createParty'])->name('create-party');
 Route::get('/manage-parties', [PartyController::class, 'index'])->name('manage-parties');
 Route::get('/edit-party/{id}', [PartyController::class, 'editParty'])->name('editParty');
+Route::put('/update-parties/{id}', [PartyController::class, 'updateParty'])->name('update-party');
+Route::delete('/delete-parties/{id}', [PartyController::class, 'deleteParty'])->name('delete-party');
 
 
 

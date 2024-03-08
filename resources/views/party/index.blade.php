@@ -2,8 +2,10 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
+        <div class="col">
+            
             <div class="page-title-box">
+           
                 <h2 class="page-title font-weight-bold text-uppercase">Manage Clients</h2>
             </div>
         </div>
@@ -12,6 +14,8 @@
     <!-- end page title -->
     <div class="row">
         <div class="col-12">
+             {{-- Include Alert file for success and error msg --}}
+             @include('include.alert')
             <div class="card-box">
                 <a href="{{route('addParty')}}" class="btn btn-sm btn-blue waves-effect waves-light float-right">
                     <i class="mdi mdi-plus-circle"></i> Add Party

@@ -19,23 +19,8 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    @if(session('status'))
-                    <div class="alert alert-success">{{session('status')}}</div>
-                    @endif
-
-
-                    @if(count($errors))                       
-                    <div  class="alert alert-danger">
-                     {{--$errors is an array $err is like i variable  --}}
-                     <strong> Validation errors:</strong>
-                     <ul>   
-                     @foreach($errors->all() as $err)
-                        <li> {{$err}} </li>   
-                    
-                    @endforeach
-                        </ul>
-                    </div>
-                    @endif
+                    {{-- Include Alert file for success and error msg --}}
+                    @include('include.alert')
                     <h4 class="header-title text-uppercase"> Basic Info</h4>
                     <hr>
                     <form class="needs-validation" novalidate="" method="POST" action="{{route('create-party')}}">

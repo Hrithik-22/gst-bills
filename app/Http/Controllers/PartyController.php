@@ -32,10 +32,10 @@ class PartyController extends Controller
             [
                 'party_type' =>'required',
                 'full_name' => 'required|string|min:2|max:20',
-                'phone_no' => 'required|numeric',
+                'phone_no' => 'required|max:10',
                 'address' => 'required|max:255',
                 'account_holder_name' => 'required|string|min:2|max:20',
-                'account_no' => 'required|numeric',
+                'account_no' => 'required',
                 'bank_name' =>'required|max:255',
                 'ifsc_code' => 'required|max:50',
                 'branch_address' => 'required|max:255',
@@ -64,5 +64,28 @@ class PartyController extends Controller
         // return "Coding with Hrithik";
         $data['party']=Party::find($party_id);
         return view("party.edit",$data);
+    }
+     // function to update party data
+    public function updateParty($id,Request $request){
+        $request->validate(
+            [
+                'party_type' =>'required',
+                'full_name' => 'required|string|min:2|max:20',
+                'phone_no' => 'required|max:10',
+                'address' => 'required|max:255',
+                'account_holder_name' => 'required|string|min:2|max:20',
+                'account_no' => 'required',
+                'bank_name' =>'required|max:255',
+                'ifsc_code' => 'required|max:50',
+                'branch_address' => 'required|max:255',
+                
+            ]
+        );
+        //update the record
+        $param=$request->all();
+        unset($param['_token']);
+        unset($param['_method']);
+        Party::where('id',$id)->update($param);
+        return redirect()->route('manage-parties')->withStatus("Party Updated successfully");
     }
 }
