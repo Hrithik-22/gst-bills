@@ -97,8 +97,14 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="{{route('editParty',$party->id)}}"><i
                                                 class="mdi mdi-pencil mr-2 text-muted font-18 vertical-middle"></i>Edit</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="mdi mdi-delete mr-2 text-muted font-18 vertical-middle"></i>Delete</a>
+                                        {{-- <a class="dropdown-item" href="#"><i
+                                                class="mdi mdi-delete mr-2 text-muted font-18 vertical-middle"></i>Delete</a> --}}
+                                        <form method="post" action="{{route('delete-party',$party)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="dropdown-item" type="submit"><i
+                                                class="mdi mdi-delete mr-2 text-muted font-18 vertical-middle"></i>Delete</button>
+                                        </form>
                                     </div>
                                 </div>
                             </td>

@@ -24,8 +24,9 @@ class Party extends Model
         "ifsc_code",
         "branch_address"
     );
-    // Timestamps
-    public $timestamps = true;
 
-    
+    public function gstBills()
+    {
+        return $this->hasMany(GstBill::class);
+    }
 }

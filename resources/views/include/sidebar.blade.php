@@ -43,11 +43,11 @@
             <div class="collapse" id="sidebarCrm">
               <ul class="nav-second-level">
                 <li>
-                  <a href="gstbill.html"><i data-feather="plus" class="pr-0 mr-1"></i>Create
+                  <a href="{{url('/add-gst-bill')}}"><i data-feather="plus" class="pr-0 mr-1"></i>Create
                     bill</a>
                 </li>
                 <li>
-                  <a href="managebills.html"><i data-feather="list" class="pr-0 mr-1"></i>Manage all
+                  <a href="{{url('/manage-gst-bills')}}"><i data-feather="list" class="pr-0 mr-1"></i>Manage all
                     bills</a>
                 </li>
               </ul>

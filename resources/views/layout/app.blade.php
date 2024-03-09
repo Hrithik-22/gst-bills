@@ -153,6 +153,8 @@
 
   <!-- App js-->
   <script src="{{asset('assets/js2/app.min.js')}}"></script>
+  <script src="{{asset('assets/script.js')}}"></script>
+
 </body>
 
 </html>

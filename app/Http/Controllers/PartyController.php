@@ -88,4 +88,10 @@ class PartyController extends Controller
         Party::where('id',$id)->update($param);
         return redirect()->route('manage-parties')->withStatus("Party Updated successfully");
     }
+
+    public function deleteParty(Party $party){
+        $party->delete();
+        return redirect()->route('manage-parties')->withStatus("Party Deleted successfully");
+
+    }
 }

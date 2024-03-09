@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateGstBillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,16 +19,17 @@ return new class extends Migration
             $table->date("invoice_date")->nullable();
             $table->string("invoice_no")->unique();
             $table->text("item_description")->nullable();
-            $table->float("total_amount",10,2)->default(0);
-            $table->float("cgst_rate",10,2)->default(0);
-            $table->float("ngst_rate",10,2)->default(0);
-            $table->float("igst_rate",10,2)->default(0);
-            $table->float("cgst_amount",10,2)->default(0);
-            $table->float("ngst_amount",10,2)->default(0);
-            $table->float("igst_amount",10,2)->default(0);
-            $table->float("tax_amount",10,2)->default(0);
-            $table->float("net_amount",10,2)->default(0);
+            $table->float("total_amount", 10, 2)->nullable();
+            $table->float("cgst_rate", 10, 2)->nullable();
+            $table->float("sgst_rate", 10, 2)->nullable();
+            $table->float("igst_rate", 10, 2)->nullable();
+            $table->float("cgst_amount", 10, 2)->nullable();
+            $table->float("sgst_amount", 10, 2)->nullable();
+            $table->float("igst_amount", 10, 2)->nullable();
+            $table->float("tax_amount", 10, 2)->nullable();
+            $table->float("net_amount", 10, 2)->nullable();
             $table->text("declaration")->nullable();
+            $table->tinyInteger("is_deleted")->default(0);
             $table->timestamps();
         });
     }
@@ -42,4 +43,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('gst_bills');
     }
-};
+}

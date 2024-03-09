@@ -38,16 +38,19 @@ Route::post('/create-party', [PartyController::class, 'createParty'])->name('cre
 Route::get('/manage-parties', [PartyController::class, 'index'])->name('manage-parties');
 Route::get('/edit-party/{id}', [PartyController::class, 'editParty'])->name('editParty');
 Route::put('/update-parties/{id}', [PartyController::class, 'updateParty'])->name('update-party');
-Route::delete('/delete-parties/{id}', [PartyController::class, 'deleteParty'])->name('delete-party');
+Route::delete('/delete-parties/{party}', [PartyController::class, 'deleteParty'])->name('delete-party');
 
 
 
 //GST Bill Routes
 Route::get('/add-gst-bill', [GstBillController::class, 'addGstBill'])->name('add-gst-bill');
+Route::post('/create-gst-bill', [GstBillController::class, 'createGstBill'])->name('create-gst-bill');
+
 Route::get('/manage-gst-bills', [GstBillController::class, 'index'])->name('manage-gst-bills');
-Route::get('/print-gst-bill', [GstBillController::class, 'print'])->name('print-gst-bill');
+Route::get('/print-gst-bill/{id}', [GstBillController::class, 'print'])->name('print-gst-bill');
 
-
+//soft delete
+Route::get('/delete/{table}/{id}', [AppController::class, 'delete'])->name('delete');
 
 
 //  /{name?} => Optional Parameters
