@@ -11,7 +11,7 @@ class GstBillController extends Controller
 {
     //
     public function index(){
-        $bills=GstBill::with('party')->get();
+        $bills=GstBill::where('is_deleted',0)->with('party')->get();
 
         return view("gst-bill.index",compact('bills'));
     } 
@@ -20,10 +20,10 @@ class GstBillController extends Controller
         $data['parties']=Party::where('party_type','client')->orderBy('full_name')->get();
         return view("gst-bill.add",$data);
     }
-    public function print($id){
-        $data['bill']=GstBill::where('id',$id)->with('party')->first();
-        return view("gst-bill.print",$data);
-
+    public function print($id)
+    {
+        $data['bill'] = GstBill::where('id', $id)->with('party')->first();
+        return view("gst-bill.print", $data);
     }
     # Function to create/store gst bill
     public function createGstBill(Request $request)
