@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VendorInvoice;
+
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\GstBillController;
 use App\Http\Controllers\PartyController;
@@ -57,3 +59,6 @@ Route::get('/delete/{table}/{id}', [AppController::class, 'delete'])->name('dele
 //  /{name} => Required Parameters
 
 // Route::get('/about/{name?}',[AppController::class,'about'] );
+
+// Resource controller routes
+Route::resource('vendor-invoice',VendorInvoice::class);

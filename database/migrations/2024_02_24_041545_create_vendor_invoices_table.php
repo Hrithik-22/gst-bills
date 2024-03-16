@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer("party_id")->nullable();
             $table->date("invoice_date")->nullable();
-            $table->string("invoice_no")->unique();
+            $table->string("invoice_no")->nullable();
             $table->text("item_description")->nullable();
             $table->float("total_amount",10,2)->default(0);
             $table->text("declaration")->nullable();
