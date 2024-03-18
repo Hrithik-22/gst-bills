@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 class GstBillController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $bills=GstBill::where('is_deleted',0)->with('party')->get();
 

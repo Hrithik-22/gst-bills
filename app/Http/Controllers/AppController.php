@@ -8,9 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class AppController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         // return "Coding with Hrithik";
-        return view("dashboard");
+        return redirect()->route('login');
     }
     public function about(){
         // return "Coding with Hrithik";

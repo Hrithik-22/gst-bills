@@ -6,7 +6,7 @@ use App\Http\Controllers\VendorInvoice;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\GstBillController;
 use App\Http\Controllers\PartyController;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,3 +62,10 @@ Route::get('/delete/{table}/{id}', [AppController::class, 'delete'])->name('dele
 
 // Resource controller routes
 Route::resource('vendor-invoice',VendorInvoice::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -11,6 +11,10 @@ use function Opis\Closure\unserialize;
 
 class PartyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //
     #Function to load parties
     public function index(){
